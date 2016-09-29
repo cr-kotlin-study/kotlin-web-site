@@ -38,14 +38,13 @@ Data Classes에 대해 컴파일러는 primary constructor에 선언된 모든 p
 
 ## Copying
   
-It's often the case that we need to copy an object altering _some_ of its properties, but keeping the rest unchanged. 
-This is what `copy()` function is generated for. For the `User` class above, its implementation would be as follows:
+종종 Object의 몇몇 프로퍼티만을 바꾸고 나머지 값을 유지하며 복사(copying)가 필요한 경우가 있다. 이러한 필요성 때문에 data class에 대해서는 `copy()` 함수를 제공한다. 위에서 예시로 든 `User` 클래스의 경우 다음곽 같은 형태의 함수가 생성된다.
      
 ``` kotlin
 fun copy(name: String = this.name, age: Int = this.age) = User(name, age)     
 ```     
 
-This allows us to write
+사용법은 아래와 같다. 
 
 ``` kotlin
 val jack = User(name = "Jack", age = 1)
